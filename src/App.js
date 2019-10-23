@@ -1,42 +1,47 @@
 import React, { Component } from "react";
 import Helmet from "react-helmet";
-import { Container } from "react-bootstrap";
+import { Provider } from "react-redux";
+import { Container, Row, Col } from "react-bootstrap";
+import store from "./store";
 import "./App.css";
 import Forms from "./components/Forms";
+import DisplayUser from "./components/DisplayUser";
 
 class App extends Component {
-  state = {
-    //users: [],
+  /* state = {
+    users: [],
     formSave: false
   };
 
-  /*updateUser = user => {
+  updateUser = user => {
     //console.log(newUser);
-    this.setState({ users: user, formSave: true });
-  };*/
-
-  formSave = () => {
-    //console.log(newUser);
-    this.setState({ formSave: true });
-  };
+    const { users } = this.state;
+    this.setState({ users: [...users, user], formSave: true });
+  }; */
 
   render() {
+    //const { users, formSave } = this.state;
     return (
-      <Container fluid={true} className="bodyStyle section-padding">
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>Edward Bella - Coding Challenge 1</title>
-        </Helmet>
+      <Provider store={store}>
+        <Container fluid={true} className="bodyStyle section-padding">
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>Edward Bella - Coding Challenge 1</title>
+          </Helmet>
 
-        <h6 className="text-center mb-4">
-          Edward Bella - Enye Tech Coding Challenge 1
-        </h6>
-
-        <Forms
-          /*updateUser={this.updateUser}*/
-          formSave={this.formSave}
-        />
-      </Container>
+          <h6 className="text-center mb-4">
+            Edward Bella - Enye Tech Coding Challenge 1
+          </h6>
+          <Row>
+            <Col className="mx-auto mb-4" md={6}>
+              <Forms />
+            </Col>
+            <Col className="mx-auto" md={10}>
+              <DisplayUser />
+            </Col>
+          </Row>
+        </Container>
+      </Provider>
     );
   }
 }

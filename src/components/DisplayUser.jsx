@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Table } from "react-bootstrap";
+import { saveForm } from "../actions/formActions";
 
 export class DisplayUser extends Component {
   render() {
@@ -16,14 +18,14 @@ export class DisplayUser extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.props.data.map(data => {
+          {this.props.users.map(data => {
             return (
               <tr>
-                <td>{data.firstName}</td>
-                <td>{data.lastName}</td>
+                <td>{data.fname}</td>
+                <td>{data.lname}</td>
                 <td>{data.email}</td>
                 <td>{data.age}</td>
-                <td>{data.birthday}</td>
+                <td>{data.birth}</td>
                 <td>{data.hobby}</td>
               </tr>
             );
@@ -34,4 +36,11 @@ export class DisplayUser extends Component {
   }
 }
 
-export default DisplayUser;
+const matchStateToProps = state => ({
+  users: state.users.users
+});
+
+export default connect(
+  matchStateToProps,
+  { saveForm }
+)(DisplayUser);
