@@ -5,7 +5,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import store from "./store";
 import "./App.css";
 import Forms from "./components/Forms";
-import DisplayUser from "./components/DisplayUser";
+import { DisplayUser } from "./components/DisplayUser";
 
 class App extends Component {
   /* state = {
