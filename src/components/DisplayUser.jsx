@@ -5,7 +5,7 @@ import { Table } from "react-bootstrap";
 export const DisplayUser = () => {
   const db = useSelector(state => state.data.db);
   //var count = 0;
-  console.log(db);
+  //console.log(db);
 
   //const dbArr = Object.values(db);
   return (
