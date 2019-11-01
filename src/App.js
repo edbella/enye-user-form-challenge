@@ -26,11 +26,11 @@ class App extends Component {
         <Container fluid={true} className="bodyStyle section-padding">
           <Helmet>
             <meta charSet="utf-8" />
-            <title>Edward Bella - Coding Challenge 2</title>
+            <title>Edward Bella - Coding Challenge 3</title>
           </Helmet>
 
           <h6 className="text-center mb-4">
-            Edward Bella - Enye Tech Coding Challenge 2
+            Edward Bella - Enye Tech Coding Challenge 3
           </h6>
           <Row>
             <Col className="mx-auto mb-4" md={6}>

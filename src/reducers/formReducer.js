@@ -1,15 +1,24 @@
-import { SAVE_FORM } from "../actions/types";
+import {
+  SAVE_FORM,
+  UPDATE_STORE
+} from "../actions/types";
 
 const initialState = {
-  users: []
+  sent: [],
+  db: ""
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case SAVE_FORM:
       return {
         ...state,
-        users: [...state.users, action.payload]
+        sent: [action.payload]
+      };
+    case UPDATE_STORE:
+      return {
+        ...state,
+        db: action.payload
       };
     default:
       return state;
