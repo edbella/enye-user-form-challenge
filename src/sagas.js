@@ -60,7 +60,7 @@ export function* watchReceiveAction() {
 } */
 
 function* startListener() {
-  yield delay(9000)
+  //yield delay(9000)
   // #1
   const channel = eventChannel(emiter => {
     const listener = database.ref("entries/users").on("value", snapshot => {
@@ -82,10 +82,15 @@ function* startListener() {
       data
     } = yield take(channel);
 
-    const dbC = Object.values(data);
+    if (data !== null) {
+      const dbC = Object.values(data);
+      yield put(updateStore(dbC));
+    } else {
+      yield put(updateStore(data));
+    }
     //console.log(data)
     // #4
-    yield put(updateStore(dbC));
+    //yield put(updateStore(dbC));
   }
 }
 

@@ -7,7 +7,7 @@ export const DisplayUser = () => {
   //var count = 0;
   console.log(db);
 
-  const dbArr = Object.values(db);
+  //const dbArr = Object.values(db);
   return (
     <Table responsive="md" striped bordered hover>
       <thead>
@@ -22,8 +22,8 @@ export const DisplayUser = () => {
         </tr>
       </thead>
       <tbody>
-        {dbArr ? (
-          dbArr.map(data => {
+        {db ? (
+          db.map(data => {
             return (
               <tr key={data.userID}>
                 <td>{data.userID}</td>
